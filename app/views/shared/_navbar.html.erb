@@ -34,9 +34,9 @@
               <span class="mr-1"><%= t('profile') %></span>
             <% end %>
           </li>
-          <% if !Docuseal.demo? && can?(:manage, EncryptedConfig) %>
+          <% if !Docuseal.demo? && Docuseal.multitenant? && can?(:manage, EncryptedConfig) %>
             <li>
-              <%= link_to Docuseal.multitenant? ? console_redirect_index_path : Docuseal::CONSOLE_URL, data: { prefetch: false }, class: 'flex items-center' do %>
+              <%= link_to console_redirect_index_path, data: { prefetch: false }, class: 'flex items-center' do %>
                 <%= svg_icon('terminal', class: 'w-5 h-5 flex-shrink-0 stroke-2') %>
                 <%= t('console') %>
               <% end %>
