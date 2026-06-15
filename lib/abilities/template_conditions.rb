@@ -7,6 +7,9 @@ module Abilities
     def collection(user, ability: nil)
       templates = Template.where(account_id: user.account_id)
 
+      # MightyWELL fork: members only see templates they authored; admins see all.
+      templates = templates.where(author_id: user.id) unless user.admin?
+
       return templates unless user.account.testing?
 
       shared_ids =
@@ -18,7 +21,12 @@ module Abilities
 
     def entity(template, user:, ability: nil)
       return true if template.account_id.blank?
-      return true if template.account_id == user.account_id
+
+      if template.account_id == user.account_id
+        # MightyWELL fork: members may only act on their own templates; admins on all.
+        return user.admin? || template.author_id == user.id
+      end
+
       return false unless user.account.linked_account_account
       return false if template.template_sharings.to_a.blank?
 

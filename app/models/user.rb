@@ -48,7 +48,8 @@
 #
 class User < ApplicationRecord
   ROLES = [
-    ADMIN_ROLE = 'admin'
+    ADMIN_ROLE = 'admin',
+    MEMBER_ROLE = 'editor'
   ].freeze
 
   EMAIL_REGEXP = /[^@;,<>\s]+@[^@;,<>\s]+/
@@ -79,6 +80,15 @@ class User < ApplicationRecord
   scope :admins, -> { where(role: ADMIN_ROLE) }
 
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\z/ }
+
+  # MightyWELL fork: an admin sees the whole account; a member only their own items.
+  def admin?
+    role == ADMIN_ROLE
+  end
+
+  def member?
+    role == MEMBER_ROLE
+  end
 
   def access_token
     super || build_access_token.tap(&:save!)
