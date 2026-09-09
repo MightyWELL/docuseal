@@ -13,6 +13,7 @@ class AccountConfigsController < ApplicationController
     AccountConfig::ALLOW_TO_DECLINE_KEY,
     AccountConfig::ALLOW_TO_DELEGATE_KEY,
     AccountConfig::FORM_PREFILL_SIGNATURE_KEY,
+    AccountConfig::SAVE_SIGNATURE_BY_EMAIL_KEY,
     AccountConfig::ESIGNING_PREFERENCE_KEY,
     AccountConfig::FORM_WITH_CONFETTI_KEY,
     AccountConfig::DOWNLOAD_LINKS_AUTH_KEY,

@@ -41,6 +41,11 @@ module Api
         cookies.encrypted[:signature_uuids] = build_new_cookie_signatures_json(@submitter, attachment)
       end
 
+      if params[:save_email_signature] == 'true' && params[:type].in?(%w[signature initials]) &&
+         Submitters::EmailSignatures.enabled?(@submitter)
+        Submitters::EmailSignatures.save!(@submitter, attachment, kind: params[:type])
+      end
+
       render json: attachment.as_json(only: %i[uuid created_at], methods: %i[url filename content_type])
     rescue Submitters::MaliciousFileExtension => e
       Rollbar.error(e) if defined?(Rollbar)

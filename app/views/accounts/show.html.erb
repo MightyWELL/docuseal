@@ -194,6 +194,23 @@
             </div>
           <% end %>
         <% end %>
+        <% account_config = AccountConfig.find_or_initialize_by(account: current_account, key: AccountConfig::SAVE_SIGNATURE_BY_EMAIL_KEY) %>
+        <% if can?(:manage, account_config) %>
+          <%= form_for account_config, url: account_configs_path, method: :post do |f| %>
+            <%= f.hidden_field :key %>
+            <div class="flex items-center justify-between gap-4 py-2.5">
+              <div class="flex items-center space-x-1">
+                <span class="text-left"><%= t('save_signatures_by_email') %></span>
+                <span class="tooltip tooltip-top flex cursor-pointer" data-tip="<%= t('let_signers_save_their_signature_and_initials_to_pre_fill_in_future_documents_sent_to_the_same_email') %>">
+                  <%= svg_icon('info_circle', class: 'hidden md:inline-block w-4 h-4 shrink-0') %>
+                </span>
+              </div>
+              <submit-form data-on="change" class="flex">
+                <%= f.check_box :value, class: 'toggle', checked: account_config.value == true %>
+              </submit-form>
+            </div>
+          <% end %>
+        <% end %>
         <% account_config = AccountConfig.find_or_initialize_by(account: current_account, key: AccountConfig::DOWNLOAD_LINKS_EXPIRE_KEY) %>
         <% if can?(:manage, account_config) %>
           <%= form_for account_config, url: account_configs_path, method: :post do |f| %>

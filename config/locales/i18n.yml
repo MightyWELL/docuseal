@@ -208,6 +208,8 @@ en: &en
   allow_to_decline_documents: Allow to decline documents
   allow_to_delegate_documents: Allow to delegate documents
   remember_and_pre_fill_signatures: Remember and pre-fill signatures
+  save_signatures_by_email: Save signer signatures by email
+  let_signers_save_their_signature_and_initials_to_pre_fill_in_future_documents_sent_to_the_same_email: Let signers save their signature and initials to pre-fill in future documents sent to the same email.
   require_authentication_for_file_download_links: Require authentication for file download links
   combine_completed_documents_and_audit_log: Combine completed documents and Audit Log
   salesforce_integration: Salesforce Integration
@@ -1264,6 +1266,8 @@ es: &es
   allow_to_decline_documents: Permitir rechazar documentos
   allow_to_delegate_documents: Permitir delegar documentos
   remember_and_pre_fill_signatures: Recordar y prellenar firmas
+  save_signatures_by_email: Guardar firmas de los firmantes por correo electrónico
+  let_signers_save_their_signature_and_initials_to_pre_fill_in_future_documents_sent_to_the_same_email: Permitir que los firmantes guarden su firma e iniciales para prellenarlas en futuros documentos enviados al mismo correo electrónico.
   require_authentication_for_file_download_links: Requerir autenticación para enlaces de descarga de archivos
   combine_completed_documents_and_audit_log: Combinar documentos completados y Registro de Auditoría
   salesforce_integration: Integración con Salesforce
@@ -2317,6 +2321,8 @@ it: &it
   allow_to_decline_documents: Permettere di rifiutare i documenti
   allow_to_delegate_documents: Permettere di delegare i documenti
   remember_and_pre_fill_signatures: Ricordare e precompilare le firme
+  save_signatures_by_email: Salvare le firme dei firmatari per email
+  let_signers_save_their_signature_and_initials_to_pre_fill_in_future_documents_sent_to_the_same_email: Consenti ai firmatari di salvare la propria firma e le iniziali per precompilarle nei futuri documenti inviati alla stessa email.
   require_authentication_for_file_download_links: "Richiedere l'autenticazione per i link di download dei file"
   combine_completed_documents_and_audit_log: Combinare i documenti completati e il Registro di Audit
   salesforce_integration: Integrazione con Salesforce
@@ -3370,6 +3376,8 @@ fr: &fr
   allow_to_decline_documents: Autoriser le refus de documents
   allow_to_delegate_documents: Autoriser la délégation de documents
   remember_and_pre_fill_signatures: Mémoriser et pré-remplir les signatures
+  save_signatures_by_email: Enregistrer les signatures des signataires par e-mail
+  let_signers_save_their_signature_and_initials_to_pre_fill_in_future_documents_sent_to_the_same_email: Permettre aux signataires d’enregistrer leur signature et leurs initiales pour les pré-remplir dans les futurs documents envoyés à la même adresse e-mail.
   require_authentication_for_file_download_links: Exiger une authentification pour les liens de téléchargement
   combine_completed_documents_and_audit_log: Combiner les documents complétés et le journal d’audit
   salesforce_integration: Intégration Salesforce
@@ -4420,6 +4428,8 @@ pt: &pt
   allow_to_decline_documents: Permitir recusar documentos
   allow_to_delegate_documents: Permitir delegar documentos
   remember_and_pre_fill_signatures: Lembrar e preencher assinaturas automaticamente
+  save_signatures_by_email: Salvar assinaturas dos signatários por e-mail
+  let_signers_save_their_signature_and_initials_to_pre_fill_in_future_documents_sent_to_the_same_email: Permitir que os signatários salvem sua assinatura e iniciais para preenchê-las automaticamente em futuros documentos enviados ao mesmo e-mail.
   require_authentication_for_file_download_links: Requerer autenticação para links de download de arquivos
   combine_completed_documents_and_audit_log: Combinar documentos concluídos e log de auditoria
   salesforce_integration: Integração com Salesforce
@@ -5473,6 +5483,8 @@ de: &de
   allow_to_decline_documents: Ablehnen von Dokumenten erlauben
   allow_to_delegate_documents: Delegieren von Dokumenten erlauben
   remember_and_pre_fill_signatures: Signaturen merken und vorab ausfüllen
+  save_signatures_by_email: Signaturen der Unterzeichner per E-Mail speichern
+  let_signers_save_their_signature_and_initials_to_pre_fill_in_future_documents_sent_to_the_same_email: Unterzeichnern erlauben, ihre Signatur und Initialen zu speichern, um sie in zukünftigen Dokumenten an dieselbe E-Mail-Adresse vorab auszufüllen.
   require_authentication_for_file_download_links: Authentifizierung für Dateidownload-Links erforderlich
   combine_completed_documents_and_audit_log: Abgeschlossene Dokumente und Prüfprotokoll kombinieren
   salesforce_integration: Salesforce-Integration
@@ -6931,6 +6943,8 @@ nl: &nl
   allow_to_decline_documents: Weigeren van documenten toestaan
   allow_to_delegate_documents: Delegeren van documenten toestaan
   remember_and_pre_fill_signatures: Handtekeningen onthouden en vooraf invullen
+  save_signatures_by_email: Handtekeningen van ondertekenaars opslaan per e-mail
+  let_signers_save_their_signature_and_initials_to_pre_fill_in_future_documents_sent_to_the_same_email: Laat ondertekenaars hun handtekening en initialen opslaan om deze vooraf in te vullen in toekomstige documenten die naar hetzelfde e-mailadres worden gestuurd.
   require_authentication_for_file_download_links: Authenticatie vereisen voor links naar bestandsdownloads
   combine_completed_documents_and_audit_log: Voltooide documenten en auditlogboek combineren
   salesforce_integration: Salesforce-integratie

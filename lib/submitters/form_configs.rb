@@ -6,6 +6,7 @@ module Submitters
                     AccountConfig::FORM_COMPLETED_MESSAGE_KEY,
                     AccountConfig::FORM_WITH_CONFETTI_KEY,
                     AccountConfig::FORM_PREFILL_SIGNATURE_KEY,
+                    AccountConfig::SAVE_SIGNATURE_BY_EMAIL_KEY,
                     AccountConfig::WITH_SIGNATURE_ID,
                     AccountConfig::ALLOW_TO_DECLINE_KEY,
                     AccountConfig::ALLOW_TO_DELEGATE_KEY,
@@ -30,6 +31,7 @@ module Submitters
       with_typed_signature = find_safe_value(configs, AccountConfig::ALLOW_TYPED_SIGNATURE) != false
       with_confetti = find_safe_value(configs, AccountConfig::FORM_WITH_CONFETTI_KEY) == true
       prefill_signature = find_safe_value(configs, AccountConfig::FORM_PREFILL_SIGNATURE_KEY) != false
+      save_signature_by_email = find_safe_value(configs, AccountConfig::SAVE_SIGNATURE_BY_EMAIL_KEY) == true
       reuse_signature = find_safe_value(configs, AccountConfig::REUSE_SIGNATURE_KEY) != false
       with_decline = find_safe_value(configs, AccountConfig::ALLOW_TO_DECLINE_KEY) != false
       with_delegate = find_safe_value(configs, AccountConfig::ALLOW_TO_DELEGATE_KEY) == true
@@ -46,7 +48,7 @@ module Submitters
       attrs = { completed_button:, with_typed_signature:, with_confetti:,
                 reuse_signature:, with_decline:, with_delegate:, with_partial_download:,
                 policy_links:, enforce_signing_order:, completed_message:,
-                require_signing_reason:, prefill_signature:, with_submitter_timezone:,
+                require_signing_reason:, prefill_signature:, save_signature_by_email:, with_submitter_timezone:,
                 with_signature_id_reason:, with_signature_id:, with_field_labels:, with_timestamp_seconds: }
 
       keys.each do |key|

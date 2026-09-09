@@ -38,6 +38,7 @@ class AccountConfig < ApplicationRecord
   FORM_COMPLETED_MESSAGE_KEY = 'form_completed_message'
   FORM_WITH_CONFETTI_KEY = 'form_with_confetti'
   FORM_PREFILL_SIGNATURE_KEY = 'form_prefill_signature'
+  SAVE_SIGNATURE_BY_EMAIL_KEY = 'save_signature_by_email'
   ESIGNING_PREFERENCE_KEY = 'esigning_preference'
   DOWNLOAD_LINKS_AUTH_KEY = 'download_links_auth'
   DOWNLOAD_LINKS_EXPIRE_KEY = 'download_links_expire'
