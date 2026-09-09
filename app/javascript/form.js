@@ -29,6 +29,8 @@ safeRegisterElement('submission-form', class extends HTMLElement {
       schema: JSON.parse(this.dataset.schema),
       canSendEmail: this.dataset.canSendEmail === 'true',
       previousSignatureValue: this.dataset.previousSignatureValue,
+      previousInitialsValue: this.dataset.previousInitialsValue,
+      saveSignatureByEmail: this.dataset.saveSignatureByEmail === 'true',
       goToLast: this.dataset.goToLast === 'true',
       isDemo: this.dataset.isDemo === 'true',
       attribution: this.dataset.attribution !== 'false',

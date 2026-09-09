@@ -170,6 +170,20 @@
       @focus="$emit('focus')"
       @input="updateWrittenInitials"
     >
+    <label
+      v-if="saveSignatureByEmail && submitter.email && !computedPreviousValue"
+      dir="auto"
+      class="flex items-center justify-center space-x-2 mt-2 cursor-pointer select-none save-signature-checkbox"
+    >
+      <input
+        v-model="saveEmailSignature"
+        type="checkbox"
+        class="checkbox checkbox-sm"
+      >
+      <span class="text-sm">
+        {{ t('save_initials_for_future_documents') }}
+      </span>
+    </label>
   </div>
 </template>
 
@@ -219,6 +233,11 @@ export default {
       required: false,
       default: true
     },
+    saveSignatureByEmail: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     attachmentsIndex: {
       type: Object,
       required: false,
@@ -240,6 +259,7 @@ export default {
     return {
       isInitialsStarted: false,
       isUsePreviousValue: true,
+      saveEmailSignature: true,
       isDrawInitials: false,
       uploadImageInputKey: Math.random().toString()
     }
@@ -425,6 +445,7 @@ export default {
             formData.append('file', file)
             formData.append('submitter_slug', this.submitterSlug)
             formData.append('name', 'attachments')
+            formData.append('save_email_signature', this.saveSignatureByEmail && this.saveEmailSignature)
             formData.append('type', 'initials')
 
             return fetch(this.baseUrl + '/api/attachments', {

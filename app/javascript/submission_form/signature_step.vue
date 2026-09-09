@@ -307,6 +307,20 @@
       name="with_reason"
       :value="field.preferences.reason_field_uuid"
     >
+    <label
+      v-if="saveSignatureByEmail && submitter.email && !computedPreviousValue"
+      dir="auto"
+      class="flex items-center justify-center space-x-2 mt-2 cursor-pointer select-none save-signature-checkbox"
+    >
+      <input
+        v-model="saveEmailSignature"
+        type="checkbox"
+        class="checkbox checkbox-sm"
+      >
+      <span class="text-sm">
+        {{ t('save_signature_for_future_documents') }}
+      </span>
+    </label>
     <div
       v-if="isShowQr"
       dir="auto"
@@ -420,6 +434,11 @@ export default {
       required: false,
       default: false
     },
+    saveSignatureByEmail: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     attachmentsIndex: {
       type: Object,
       required: false,
@@ -463,6 +482,7 @@ export default {
       isShowQr: false,
       isOtherReason: false,
       isUsePreviousValue: true,
+      saveEmailSignature: true,
       isTouchAttachment: false,
       isTextSignature: !this.signatureSrc && (!!this.signatureText || this.field.preferences?.format === 'typed' || this.field.preferences?.format === 'typed_or_upload'),
       uploadImageInputKey: Math.random().toString()
@@ -919,6 +939,7 @@ export default {
             formData.append('submitter_slug', this.submitterSlug)
             formData.append('name', 'attachments')
             formData.append('remember_signature', this.rememberSignature)
+            formData.append('save_email_signature', this.saveSignatureByEmail && this.saveEmailSignature)
             formData.append('type', 'signature')
 
             return fetch(this.baseUrl + '/api/attachments', {

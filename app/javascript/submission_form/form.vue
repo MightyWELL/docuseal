@@ -489,6 +489,7 @@
             :touch-attachment-uuid="previousSignatureValue"
             :with-typed-signature="withTypedSignature"
             :remember-signature="rememberSignature"
+            :save-signature-by-email="saveSignatureByEmail"
             :attachments-index="attachmentsIndex"
             :require-signing-reason="requireSigningReason"
             :signature-text="signatureText"
@@ -513,7 +514,8 @@
             :field="currentField"
             :dry-run="dryRun"
             :submitter="submitter"
-            :previous-value="previousInitialsValue"
+            :previous-value="reusedInitialsValue || previousInitialsValue"
+            :save-signature-by-email="saveSignatureByEmail"
             :attachments-index="attachmentsIndex"
             :show-field-names="showFieldNames"
             :submitter-slug="submitterSlug"
@@ -966,6 +968,16 @@ export default {
       required: false,
       default: ''
     },
+    previousInitialsValue: {
+      type: String,
+      required: false,
+      default: ''
+    },
+    saveSignatureByEmail: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
     allowToSkip: {
       type: Boolean,
       required: false,
@@ -1157,7 +1169,7 @@ export default {
         return acc
       }, {})
     },
-    previousInitialsValue () {
+    reusedInitialsValue () {
       if (this.reuseSignature !== false) {
         const initialsField = this.fields.findLast
           ? this.fields.findLast((field) => field.type === 'initials' && !!this.values[field.uuid])

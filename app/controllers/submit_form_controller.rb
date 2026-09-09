@@ -42,10 +42,20 @@ class SubmitFormController < ApplicationController
       )
     end
 
+    if @form_configs[:save_signature_by_email]
+      @signature_attachment ||=
+        Submitters::EmailSignatures.find_or_assign_attachment(@submitter, EmailSignature::SIGNATURE_KIND,
+                                                              @attachments_index.values)
+      @initials_attachment =
+        Submitters::EmailSignatures.find_or_assign_attachment(@submitter, EmailSignature::INITIALS_KIND,
+                                                              @attachments_index.values)
+    end
+
     @signature_attachment ||=
       Submitters::MaybeAssignDefaultBrowserSignature.call(@submitter, params, cookies, @attachments_index.values)
 
     @attachments_index[@signature_attachment.uuid] = @signature_attachment if @signature_attachment
+    @attachments_index[@initials_attachment.uuid] = @initials_attachment if @initials_attachment
   end
 
   def update
