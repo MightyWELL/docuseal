@@ -12,12 +12,12 @@ module.exports = {
   daisyui: {
     // MightyWELL brand theme. Theme key kept as `docuseal` so the
     // `data-theme="docuseal"` in the layouts needs no changes.
-    // Brand: navy #1F3A5F (structure / primary buttons), lime #7AC943 (CTA accent).
+    // Brand (Oct 2026): navy #1F3A5F (structure), ocean #0B7BC1 (CTA accent). No green.
     themes: [
       {
         docuseal: {
           'color-scheme': 'light',
-          primary: '#7AC943',
+          primary: '#0B7BC1',
           'primary-content': '#ffffff',
           secondary: '#1F3A5F',
           'secondary-content': '#ffffff',
@@ -31,7 +31,7 @@ module.exports = {
           'base-content': '#1F3A5F',
           info: '#234A8F',
           'info-content': '#ffffff',
-          success: '#7AC943',
+          success: '#0B7BC1',
           'success-content': '#ffffff',
           warning: '#F5B301',
           'warning-content': '#1F3A5F',
